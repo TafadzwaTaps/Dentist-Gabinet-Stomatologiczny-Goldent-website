@@ -206,7 +206,47 @@ Wszystkie teksty znajdują się w pliku `index.html`. Możesz je łatwo edytowa�
 4. **Opinie** - Opinie pacjentów (5.0 ⭐)
 5. **O nas** - Informacje o gabinecie
 6. **Galeria** - 6 zdjęć gabinetu
-7. **Kontakt** - Dane kontaktowe + formularz
+7. **Rezerwacja** - System rezerwacji online 24/7
+8. **Kontakt** - Dane kontaktowe + formularz
+
+## 🔐 Admin Panel
+
+Access the admin panel at: `https://yourusername.github.io/goldent-dental/admin.html`
+
+**Features:**
+- 📅 View and manage all bookings
+- 📧 View and manage contact messages
+- ✅ Change booking status (pending → confirmed/cancelled)
+- ✅ Mark messages as read
+- 🗑️ Delete bookings and messages
+- 🔄 Auto-refresh every 30 seconds
+
+**Default login credentials:** Set up in Firebase Authentication (see FIREBASE_SETUP.md)
+
+**Security:**
+- Admin panel requires Firebase Authentication
+- Only authenticated users can access data
+- Public users can only create bookings/messages (Firestore rules)
+
+## 📅 Booking System
+
+**How it works:**
+1. Patient selects service (6 options: Conservative Dentistry, Hygiene, Root Canal, Diagnostics, Complex Cases, Consultation)
+2. Patient chooses date from calendar (clinic schedule enforced)
+3. System shows available time slots (30 or 60 min based on service)
+4. Patient fills in contact details
+5. Booking saved to Firebase + Web3Forms notification
+6. Admin receives booking in admin panel
+
+**Clinic Schedule:**
+- Monday: 11:00 AM - 6:00 PM
+- Tuesday: 9:00 AM - 1:00 PM
+- Wednesday: 12:00 PM - 6:00 PM
+- Thursday: 12:00 PM - 6:00 PM
+- Friday: 9:00 AM - 1:00 PM
+- Saturday-Sunday: Closed
+
+**Time slots:** Automatically generated based on service duration (30 or 60 minutes)
 
 ## 🔍 SEO - Local Business
 
