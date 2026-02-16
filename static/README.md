@@ -131,6 +131,14 @@ Formularz już działa! Wiadomości będą wysyłane na email powiązany z klucz
    www.twoja-domena.pl  →  twoj-username.github.io
    ```
 
+### Language Versions
+
+Website automatically detects and switches between Polish and English:
+- URL parameter: `?lang=pl` or `?lang=en`
+- Browser detection
+- Saved preference in localStorage
+- SEO hreflang tags for both versions
+
 ### Aktualizacja treści
 
 Aby zmienić treść strony:
