@@ -95,7 +95,35 @@ https://twoj-username.github.io/goldent-dental/
 
 ## 🔧 Konfiguracja
 
-### Własna domena (opcjonalnie)
+### Firebase Setup (REQUIRED for Booking & Admin)
+
+**Follow the detailed guide:** [FIREBASE_SETUP.md](FIREBASE_SETUP.md)
+
+Quick steps:
+1. Create Firebase project at [console.firebase.google.com](https://console.firebase.google.com/)
+2. Enable Firestore Database & Authentication
+3. Copy Firebase config to `js/firebase-config.js`
+4. Create admin user in Authentication
+5. Done! Booking system and admin panel will work
+
+### Clinic Working Hours (Update if needed)
+
+Edit `js/firebase-config.js` - `clinicSchedule` object:
+```javascript
+const clinicSchedule = {
+    1: { open: '11:00', close: '18:00' }, // Monday
+    2: { open: '09:00', close: '13:00' }, // Tuesday
+    3: { open: '12:00', close: '18:00' }, // Wednesday
+    4: { open: '12:00', close: '18:00' }, // Thursday
+    5: { open: '09:00', close: '13:00' }, // Friday
+    6: null, // Saturday - Closed
+    0: null  // Sunday - Closed
+};
+```
+
+### Web3Forms (Already Configured)
+
+Formularz już działa! Wiadomości będą wysyłane na email powiązany z kluczem API Web3Forms.
 
 1. W ustawieniach GitHub Pages wprowadź swoją domenę w polu "Custom domain"
 2. W ustawieniach DNS swojej domeny dodaj CNAME record:
