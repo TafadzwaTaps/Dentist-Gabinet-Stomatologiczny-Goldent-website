@@ -23,12 +23,19 @@ Profesjonalna strona internetowa dla Gabinetu Stomatologicznego Goldent w Rzeszo
 
 ```
 static/
-├── index.html          # Główna strona HTML
+├── index.html          # Główna strona HTML (multi-language)
+├── admin.html          # Panel administracyjny
 ├── css/
 │   └── styles.css     # Własne style CSS
 ├── js/
+│   ├── translations.js # Tłumaczenia PL/EN
+│   ├── firebase-config.js # Konfiguracja Firebase
+│   ├── app.js         # Language switcher & booking system
+│   ├── admin.js       # Admin panel logic
 │   └── script.js      # JavaScript (formularz, animacje)
-└── images/            # Folder na dodatkowe zdjęcia (opcjonalnie)
+├── images/            # Folder na dodatkowe zdjęcia
+├── README.md          # Ta instrukcja
+└── FIREBASE_SETUP.md  # Szczegółowa instrukcja Firebase
 ```
 
 ## 🚀 Wdrożenie na GitHub Pages
