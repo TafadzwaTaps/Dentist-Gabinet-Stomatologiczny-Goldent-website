@@ -522,6 +522,100 @@
         </div>
     </section>
     
+    <!-- Booking Section -->
+    <section class="booking-section py-5" id="rezerwacja">
+        <div class="container booking-container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="heading-1 mb-3" data-i18n="booking.title">Rezerwacja online</h2>
+                <p class="body-medium text-secondary" data-i18n="booking.subtitle">Zarezerwuj wizytę online 24/7 - wybierz dogodny termin</p>
+            </div>
+            
+            <div class="booking-card" data-aos="fade-up">
+                <!-- Step 1: Select Service -->
+                <div class="booking-step" id="step1">
+                    <div class="booking-step-title">
+                        <span class="booking-step-number">1</span>
+                        <span data-i18n="booking.selectService">Wybierz usługę</span>
+                    </div>
+                    <div class="service-grid" id="serviceGrid">
+                        <!-- Services loaded by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Step 2: Select Date -->
+                <div class="booking-step" id="step2" style="display: none;">
+                    <div class="booking-step-title">
+                        <span class="booking-step-number">2</span>
+                        <span data-i18n="booking.selectDate">Wybierz datę</span>
+                    </div>
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="calendar-nav-btn" id="prevMonth">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="calendar-month" id="currentMonth"></div>
+                            <button class="calendar-nav-btn" id="nextMonth">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid"></div>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Select Time -->
+                <div class="booking-step" id="step3" style="display: none;">
+                    <div class="booking-step-title">
+                        <span class="booking-step-number">3</span>
+                        <span data-i18n="booking.selectTime">Wybierz godzinę</span>
+                    </div>
+                    <div class="time-slots-grid" id="timeSlotsGrid"></div>
+                    <div class="no-slots-message" id="noSlotsMessage" style="display: none;">
+                        <i class="fas fa-calendar-times mb-3" style="font-size: 3rem; color: var(--text-muted);"></i>
+                        <p data-i18n="booking.noSlotsAvailable">Brak dostępnych terminów w tym dniu</p>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Fill Details -->
+                <div class="booking-step" id="step4" style="display: none;">
+                    <div class="booking-step-title">
+                        <span class="booking-step-number">4</span>
+                        <span>Twoje dane</span>
+                    </div>
+                    
+                    <div class="booking-summary" id="bookingSummary"></div>
+                    
+                    <form id="bookingForm" class="mt-4">
+                        <div class="mb-4">
+                            <label for="bookingName" class="form-label" data-i18n="booking.name">Imię i nazwisko</label>
+                            <input type="text" class="form-control form-control-custom" id="bookingName" name="name" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="bookingPhone" class="form-label" data-i18n="booking.phone">Telefon</label>
+                            <input type="tel" class="form-control form-control-custom" id="bookingPhone" name="phone" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="bookingEmail" class="form-label" data-i18n="booking.email">Email (opcjonalnie)</label>
+                            <input type="email" class="form-control form-control-custom" id="bookingEmail" name="email">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="bookingNotes" class="form-label" data-i18n="booking.notes">Dodatkowe uwagi</label>
+                            <textarea class="form-control form-control-custom" id="bookingNotes" name="notes" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-100" data-i18n="booking.confirmBooking">
+                            Potwierdź rezerwację
+                        </button>
+                        
+                        <div id="bookingStatus" class="mt-3"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Contact Section -->
     <section class="contact-section py-5" id="kontakt">
         <div class="container">
