@@ -1,16 +1,7 @@
 // =====================================================
 // Gabinet Stomatologiczny Goldent - JavaScript
+// Additional Functionality
 // =====================================================
-
-// Initialize AOS (Animate On Scroll)
-document.addEventListener('DOMContentLoaded', function() {
-    AOS.init({
-        duration: 800,
-        easing: 'ease-out',
-        once: true,
-        offset: 100
-    });
-});
 
 // =====================================================
 // Header Scroll Effect
