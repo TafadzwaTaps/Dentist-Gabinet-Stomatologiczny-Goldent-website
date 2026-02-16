@@ -5,14 +5,19 @@ Profesjonalna strona internetowa dla Gabinetu Stomatologicznego Goldent w Rzeszo
 ## 🦷 Features
 
 - **Modern & Professional Design** - Czysty, medyczny design budujący zaufanie
+- **Multi-language Support** - Polish & English (PL ↔ EN switcher)
 - **Fully Responsive** - Doskonale wygląda na wszystkich urządzeniach
+- **Online Booking System** - Rezerwacja wizyt 24/7 z kalendarzem
+- **Admin Panel** - Zarządzanie rezerwacjami i wiadomościami
 - **SEO Optimized** - Zoptymalizowane dla wyszukiwarek Google (dentysta Rzeszów, stomatolog Rzeszów)
-- **Contact Form** - Integracja z Web3Forms dla formularza kontaktowego
+- **Hreflang Tags** - SEO meta tags dla wersji językowych
+- **Contact Form** - Integracja z Web3Forms + Firebase storage
 - **Fast Loading** - Lekka strona, szybkie ładowanie
 - **Smooth Animations** - Płynne animacje przy przewijaniu (AOS)
 - **Click-to-Call** - Funkcjonalność "kliknij aby zadzwonić"
 - **Gallery Lightbox** - Galeria zdjęć z efektem lightbox
 - **Structured Data** - Schema.org markup dla Local Business
+- **Firebase Backend** - Serverless database i authentication
 
 ## 📁 Struktura plików
 
