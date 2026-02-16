@@ -59,7 +59,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // =====================================================
-// Contact Form Handling with Web3Forms
+// Contact Form Handling with Web3Forms + Firebase
 // =====================================================
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
@@ -71,7 +71,10 @@ if (contactForm) {
         // Show loading state
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.innerHTML;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Wysyłanie...';
+        const t = translations[currentLang || 'pl'].contact;
+        
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>' + 
+            (currentLang === 'en' ? 'Sending...' : 'Wysyłanie...');
         submitButton.disabled = true;
         
         // Clear previous status
@@ -81,6 +84,23 @@ if (contactForm) {
         try {
             // Get form data
             const formData = new FormData(contactForm);
+            
+            // Save to Firebase first (if available)
+            const messageData = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email') || null,
+                message: formData.get('message'),
+                language: currentLang || 'pl'
+            };
+            
+            if (typeof saveContactMessage === 'function') {
+                try {
+                    await saveContactMessage(messageData);
+                } catch (fbError) {
+                    console.warn('Firebase save failed, continuing with Web3Forms:', fbError);
+                }
+            }
             
             // Send to Web3Forms
             const response = await fetch('https://api.web3forms.com/submit', {
@@ -92,13 +112,13 @@ if (contactForm) {
             
             if (data.success) {
                 // Success
-                formStatus.innerHTML = '<i class="fas fa-check-circle me-2"></i>Wiadomość została wysłana! Skontaktujemy się z Tobą wkrótce.';
+                formStatus.innerHTML = '<i class="fas fa-check-circle me-2"></i>' + t.formSuccess;
                 formStatus.className = 'success';
                 
                 // Reset form
                 contactForm.reset();
                 
-                // Track conversion (if you add analytics later)
+                // Track conversion (if analytics available)
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'form_submission', {
                         'event_category': 'Contact',
@@ -107,11 +127,11 @@ if (contactForm) {
                 }
             } else {
                 // Error from Web3Forms
-                throw new Error(data.message || 'Wystąpił błąd podczas wysyłania formularza.');
+                throw new Error(data.message || 'Form submission failed');
             }
         } catch (error) {
             // Error handling
-            formStatus.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i>Wystąpił błąd. Prosimy spróbować ponownie lub skontaktować się telefonicznie: 883 977 202';
+            formStatus.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i>' + t.formError;
             formStatus.className = 'error';
             console.error('Form submission error:', error);
         } finally {
